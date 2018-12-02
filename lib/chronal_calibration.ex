@@ -1,6 +1,6 @@
 defmodule ChronalCalibration do
   @moduledoc """
-  Day 1: [Advent of Code|https://adventofcode.com/2018/day/1]
+  Day 1: [Advent of Code](https://adventofcode.com/2018/day/1)
   """
 
   @spec calculate_frequency_drift([String.t()], integer) :: integer()
