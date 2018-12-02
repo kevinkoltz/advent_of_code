@@ -3,7 +3,6 @@ defmodule ChronalCalibration do
   Day 1: [Advent of Code](https://adventofcode.com/2018/day/1)
   """
 
-  @spec calculate_frequency_drift([String.t()], integer) :: integer()
   @doc """
 
   Find the resulting requency drift after all changes in frequencies have
@@ -19,6 +18,7 @@ defmodule ChronalCalibration do
       -6
 
   """
+  @spec calculate_frequency_drift([String.t()], integer) :: integer()
   def calculate_frequency_drift(frequency_changes, total_drift \\ 0)
 
   def calculate_frequency_drift([], total_drift), do: total_drift
@@ -29,7 +29,6 @@ defmodule ChronalCalibration do
     end
   end
 
-  @spec find_first_seen_twice([String.t()]) :: integer()
   @doc """
   Finds the first frequency the calibration device reaches twice.
 
@@ -48,6 +47,7 @@ defmodule ChronalCalibration do
       14
 
   """
+  @spec find_first_seen_twice([String.t()]) :: integer()
   def find_first_seen_twice(frequency_changes) do
     frequency_changes
     |> Stream.cycle()
