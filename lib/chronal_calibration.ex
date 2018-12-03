@@ -18,7 +18,7 @@ defmodule ChronalCalibration do
       -6
 
   """
-  @spec calculate_frequency_drift([String.t()], integer) :: integer()
+  @spec calculate_frequency_drift([String.t()], integer()) :: integer()
   def calculate_frequency_drift(frequency_changes, total_drift \\ 0)
 
   def calculate_frequency_drift([], total_drift), do: total_drift
