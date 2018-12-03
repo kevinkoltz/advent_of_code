@@ -42,6 +42,12 @@ defmodule InventoryManagementSystem do
       iex> find_fabric_prototype_boxes(~w(abcde fghij klmno pqrst fguij axcye wvxyz))
       "fgij"
 
+      iex> find_fabric_prototype_boxes(~w(abc bbc))
+      "bc"
+
+      iex> find_fabric_prototype_boxes(~w(abc abd))
+      "ab"
+
   """
   @spec find_fabric_prototype_boxes([String.t()]) :: String.t()
   def find_fabric_prototype_boxes(box_ids) do
@@ -53,11 +59,10 @@ defmodule InventoryManagementSystem do
           list_2 = String.codepoints(box_id_2)
 
           case List.myers_difference(list_1, list_2) do
-            [eq: lhs, del: [_], ins: [_], eq: rhs] ->
-              {:halt, Enum.join(lhs) <> Enum.join(rhs)}
-
-            _ ->
-              {:cont, nil}
+            [eq: lhs, del: [_], ins: [_], eq: rhs] -> {:halt, Enum.join(lhs) <> Enum.join(rhs)}
+            [eq: lhs, del: [_], ins: [_]] -> {:halt, Enum.join(lhs)}
+            [del: [_], ins: [_], eq: rhs] -> {:halt, Enum.join(rhs)}
+            _ -> {:cont, nil}
           end
         end)
 
