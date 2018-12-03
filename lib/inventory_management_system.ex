@@ -11,14 +11,22 @@ defmodule InventoryManagementSystem do
   """
   @spec calculate_checksum([String.t()]) :: non_neg_integer()
   def calculate_checksum(box_ids) when is_list(box_ids) do
+    increment_occurrences_if_present = fn acc, values, value ->
+      if value in values do
+        add_occurrence(value, acc)
+      else
+        acc
+      end
+    end
+
     occurrences =
       box_ids
       |> Enum.map(&count_letters/1)
       |> Enum.map(&uniq_map_values/1)
       |> Enum.reduce(%{2 => 0, 3 => 0}, fn values, acc ->
         acc
-        |> add_occurrence_if_present(2, values)
-        |> add_occurrence_if_present(3, values)
+        |> increment_occurrences_if_present.(values, 2)
+        |> increment_occurrences_if_present.(values, 3)
       end)
 
     occurrences[2] * occurrences[3]
@@ -73,14 +81,6 @@ defmodule InventoryManagementSystem do
     map
     |> Map.values()
     |> Enum.uniq()
-  end
-
-  defp add_occurrence_if_present(acc, value, values) do
-    if value in values do
-      add_occurrence(value, acc)
-    else
-      acc
-    end
   end
 
   defp add_occurrence(value, acc) do
