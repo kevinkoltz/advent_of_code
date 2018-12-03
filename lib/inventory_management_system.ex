@@ -61,10 +61,9 @@ defmodule InventoryManagementSystem do
           end
         end)
 
-      if found do
-        {:halt, found}
-      else
-        {:cont, nil}
+      case found do
+        nil -> {:cont, nil}
+        found -> {:halt, found}
       end
     end)
   end
