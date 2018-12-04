@@ -194,9 +194,11 @@ defmodule FabricSlicer do
           %{acc | overlaps: overlaps}
       end)
 
-    ids.non_overlaps
-    |> MapSet.difference(ids.overlaps)
-    |> MapSet.to_list()
-    |> List.last()
+    [non_overlapping_id] =
+      ids.non_overlaps
+      |> MapSet.difference(ids.overlaps)
+      |> MapSet.to_list()
+
+    non_overlapping_id
   end
 end
