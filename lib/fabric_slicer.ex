@@ -174,11 +174,7 @@ defmodule FabricSlicer do
     ids =
       claims
       |> Enum.map(&Claim.parse/1)
-      |> Enum.map(fn claim ->
-        for x <- 1..claim.width, y <- 1..claim.height do
-          {claim.offset_left + x, claim.offset_top + y, claim.id}
-        end
-      end)
+      |> Enum.map(&Claim.to_points_with_id/1)
       |> List.flatten()
       |> Enum.group_by(fn {x, y, _} -> {x, y} end, fn {_, _, id} -> id end)
       |> Enum.reduce(%{non_overlaps: MapSet.new(), overlaps: MapSet.new()}, fn
