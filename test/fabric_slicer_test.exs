@@ -15,10 +15,12 @@ defmodule FabricSlicerTest do
     %{claims: claims}
   end
 
+  @tag :solution
   test "calculate_overused_fabric with input from puzzle", context do
     assert calculate_overused_fabric(context.claims, 1000, 1000) == 101_565
   end
 
+  @tag :solution
   test "find_non_overlapping_claim with input from puzzle", context do
     assert find_non_overlapping_claim(context.claims) == 656
   end

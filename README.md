@@ -12,4 +12,6 @@ Solutions to the [Advent of Code 2018](https://adventofcode.com/2018/)
 
 ## Testing
 
-`mix test.watch`
+`mix test.watch` to run all tests
+
+`mix test.watch --exclude solution` to skip slow solutions

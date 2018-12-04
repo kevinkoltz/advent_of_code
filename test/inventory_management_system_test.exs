@@ -15,10 +15,12 @@ defmodule InventoryManagementSystemTest do
     %{box_ids: box_ids}
   end
 
+  @tag :solution
   test "calculate_checksum with input from puzzle", context do
     assert calculate_checksum(context.box_ids) == 6150
   end
 
+  @tag :solution
   test "find_fabric_prototype_boxes with input from puzzle", context do
     assert find_fabric_prototype_boxes(context.box_ids) == "rteotyxzbodglnpkudawhijsc"
   end
