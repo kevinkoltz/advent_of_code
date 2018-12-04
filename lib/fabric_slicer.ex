@@ -103,9 +103,8 @@ defmodule FabricSlicer do
     def sum_overlaps(%Fabric{points: points}) do
       points
       |> Enum.map(fn
-        {_, 0} -> 0
-        {_, 1} -> 0
-        {_, _overlap} -> 1
+        {_, overlap_count} when overlap_count < 2 -> 0
+        _ -> 1
       end)
       |> Enum.sum()
     end
