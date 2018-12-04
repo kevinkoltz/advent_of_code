@@ -92,9 +92,9 @@ defmodule FabricSlicer do
         fabric
         | points:
             new_points
-            |> Enum.reduce(fabric.points, fn pos, acc ->
-              overlap_count = acc[pos] + 1
-              %{acc | pos => overlap_count}
+            |> Enum.reduce(fabric.points, fn point, acc ->
+              overlap_count = acc[point] + 1
+              %{acc | point => overlap_count}
             end)
       }
     end
