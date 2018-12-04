@@ -5,7 +5,7 @@ defmodule ChronalCalibrationTest do
 
   setup_all do
     {:ok, puzzle_input} =
-      Path.join(__DIR__, "day_01_input.txt")
+      Path.join([__DIR__, "inputs", "day_01.txt"])
       |> File.read()
 
     frequency_changes =

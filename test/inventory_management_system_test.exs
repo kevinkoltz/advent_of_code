@@ -5,7 +5,7 @@ defmodule InventoryManagementSystemTest do
 
   setup_all do
     {:ok, puzzle_input} =
-      Path.join(__DIR__, "day_02_input.txt")
+      Path.join([__DIR__, "inputs", "day_02.txt"])
       |> File.read()
 
     box_ids =
