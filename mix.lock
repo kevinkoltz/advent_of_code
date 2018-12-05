@@ -3,5 +3,6 @@
   "erlex": {:hex, :erlex, "0.1.6", "c01c889363168d3fdd23f4211647d8a34c0f9a21ec726762312e08e083f3d47e", [:mix], [], "hexpm"},
   "fs": {:hex, :fs, "0.9.2", "ed17036c26c3f70ac49781ed9220a50c36775c6ca2cf8182d123b6566e49ec59", [:rebar], [], "hexpm"},
   "mix_test_watch": {:hex, :mix_test_watch, "0.0.2", "16c07e4ba784fc939d513e4693c7f2f65d00fb8458821d32bdf2522dc97f7dca", [:mix], [{:fs, "~> 0.9.1", [hex: :fs, repo: "hexpm", optional: false]}, {:porcelain, "~> 2.0.0", [hex: :porcelain, repo: "hexpm", optional: false]}], "hexpm"},
+  "nimble_parsec": {:hex, :nimble_parsec, "0.4.0", "ee261bb53214943679422be70f1658fff573c5d0b0a1ecd0f18738944f818efe", [:mix], [], "hexpm"},
   "porcelain": {:hex, :porcelain, "2.0.3", "2d77b17d1f21fed875b8c5ecba72a01533db2013bd2e5e62c6d286c029150fdc", [:mix], [], "hexpm"},
 }

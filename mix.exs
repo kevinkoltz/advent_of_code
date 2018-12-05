@@ -21,6 +21,7 @@ defmodule Advent.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:nimble_parsec, "~> 0.4.0"},
       {:mix_test_watch, "~> 0.0.0"},
       {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false}
     ]
